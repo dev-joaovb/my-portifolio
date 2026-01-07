@@ -26,9 +26,9 @@
         }
 
         /* Imagens de fundo (Substitua pelos seus links) */
-        .bg-img-1 { background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072'); }
-        .bg-img-portfolio { background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072'); }
-        .bg-img-contact { background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070'); }
+        .bg-img-1 { background-image: url('/public/foto1.jpg'); }
+        .bg-img-portfolio { background-image: url('/public/foto8.jpg'); }
+        .bg-img-contact { background-image: url('/public/foto9.jpg'); }
 
         /* Transição suave para o Navbar */
         #navbar { transition: all 0.4s ease-in-out; }
@@ -49,7 +49,7 @@
         <div class="absolute inset-0 bg-black opacity-40"></div>
         <div class="relative z-10 text-center px-4">
             <h1 class="bg-black bg-opacity-70 text-white text-3xl md:text-5xl lg:text-6xl p-6 font-light tracking-tighter animate-fade-in">
-                JOÃO VICTOR <span class="hidden md:inline font-bold">BUENO CARNEIRO</span>
+                JOÃO VICTOR <span class="">BUENO CARNEIRO</span>
             </h1>
         </div>
     </section>
@@ -74,12 +74,21 @@
         </div>
     </section>
 
-    <section class="parallax-sm bg-img-portfolio flex items-center justify-center relative">
+    <section class="parallax-sm bg-img-portfolio flex items-center justify-center relative h-[50vh] md:h-[70vh]">
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <h2 id="portfolio" class="relative z-10 bg-black bg-opacity-70 text-white text-3xl md:text-5xl p-4 tracking-widest uppercase">Portifólio</h2>
     </section>
 
     <section class="py-20 bg-white px-6 md:px-20">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-2">Meus Trabalhos</h2>
+            <p class="text-gray-500 italic text-lg mb-8">Engenharia de Software e Desenvolvimento de sistemas</p>
+            
+            <p class="text-gray-700 leading-relaxed text-lg mb-10 text-justify">
+                Ao longo da minha jornada, tenho desenvolvido projetos que equilibram <strong>estética moderna e arquitetura robusta</strong>. Meu portfólio reflete a criação de aplicações escaláveis, desde interfaces front-end responsivas até sistemas de back-end complexos e seguros. Utilizo tecnologias de ponta como <strong>React, Node.js e Tailwind CSS</strong> para garantir que cada solução seja otimizada para alta performance e excelente experiência do usuário. Meu foco é traduzir requisitos de negócio em <strong>código limpo e funcional</strong>, sempre priorizando a agilidade e a entrega de valor real em cada linha de software que escrevo.
+            </p>
+        </div>
+
         <div class="max-w-6xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="group relative overflow-hidden rounded-lg shadow-lg">
@@ -87,7 +96,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-90 transition duration-300 flex flex-col justify-end p-6">
                         <h3 class="text-white text-xl font-bold">E-commerce System</h3>
                         <p class="text-gray-300 text-sm mb-4">React, Node.js, TailwindCSS</p>
-                        <a href="#" class="text-white border border-white px-4 py-1 text-sm inline-block w-fit hover:bg-white hover:text-black transition">Ver Projeto</a>
+                        <a href="projeto-harmony.html" class="text-white border border-white px-4 py-1 text-sm inline-block w-fit hover:bg-white hover:text-black transition">Ver Projeto</a>
                     </div>
                 </div>
                 <div class="group relative overflow-hidden rounded-lg shadow-lg">
@@ -110,7 +119,7 @@
         </div>
     </section>
 
-    <section class="parallax-sm bg-img-contact flex items-center justify-center relative">
+    <section class="parallax-sm bg-img-contact flex items-center justify-center relative h-[50vh] md:h-[70vh]">
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <h2 id="contato" class="relative z-10 bg-black bg-opacity-70 text-white text-3xl md:text-5xl p-4 tracking-widest uppercase">Contato</h2>
     </section>
@@ -141,7 +150,7 @@
         </div>
     </section>
 
-    <footer class="bg-gray-400 hover:bg-black transition-colors duration-700 text-white py-12">
+    <footer class="bg-gray-600 hover:bg-black transition-colors duration-700 text-white py-12">
         <div class="text-center space-y-6">
             <div class="flex justify-center gap-8 text-3xl">
                 <a href="#" class="hover:text-blue-600 transition transform hover:scale-110"><i class="fab fa-facebook"></i></a>
