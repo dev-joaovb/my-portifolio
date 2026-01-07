@@ -1,172 +1,181 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
-  <head>
+<html lang="pt-br" class="scroll-smooth">
+<head>
     <meta charset="UTF-8">
-    <title>Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://www.w3schools.com/lib/w3.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'><link rel="stylesheet" href="./style.css">
-
-  </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>João Victor | Engenheiro de Software</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-  <body>
-  <!-- Author: Christian Pecson -->
-<!-- Date: July 2, 2016 -->
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <ul class="w3-navbar" id="myNavbar">
-    <li><a href="#" class="w3-padding-large">Christian</a></li>
-    <li class="w3-hide-small w3-right">
-      <a href="#contact" class="w3-padding-large">Contact</a>
-    </li>
-    <li class="w3-hide-small w3-right">
-      <a href="#portfolio" class="w3-padding-large">Portfolio</a>
-    </li>
-    <li class="w3-hide-small w3-right">
-      <a href="#about" class="w3-padding-large">About</a>
-    </li>
-  </ul>
-</div>
+    <style>
+        /* Efeito Parallax */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+        }
 
-<!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-opacity w3-display-container">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <h1 class="w3-center w3-padding-xlarge w3-black w3-xlarge w3-wide w3-animate-opacity">CHRISTIAN <span class="w3-hide-small">PECSON</span></h1>
-  </div>
-</div>
+        .parallax-sm {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 300px;
+        }
 
-<!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64" id="about">
-  <h2 class="w3-center">ABOUT ME</h2>
-  <p class="w3-center"><em>I love Programming</em></p>
-  <p>I am Christian Pecson. I am a dreamer whose dream is to build awesome things in the future and to contribute something useful to the world.But hey this website symbolizes that I contribute something in the world.</p>
-  <!--  Profile Picture and Description  -->
-  <div class="w3-row">
-    <div class="w3-col m6 w3-center w3-section">
-      <img src="https://www.dropbox.com/s/mm2bb2xyftqn6am/profile%20%281%29.jpg?raw=1" id="profile" class="w3-circle" alt="Photo of Me">
-    </div>
+        /* Imagens de fundo (Substitua pelos seus links) */
+        .bg-img-1 { background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072'); }
+        .bg-img-portfolio { background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072'); }
+        .bg-img-contact { background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070'); }
 
-    <!-- Hide this text on small devices -->
-    <div class="w3-col m6 w3-hide-small w3-section">
-      <p>By the help of FreeCodeCamp I will be a Full Stack Web Developer soon!</p>
-    </div>
-  </div>
-</div>
+        /* Transição suave para o Navbar */
+        #navbar { transition: all 0.4s ease-in-out; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
 
-<!-- Second Parallax Image with Portfolio Text -->
-<div class="bgimg-2 w3-display-container" id="portfolio">
-  <div class="w3-display-middle">
-    <span class="w3-xxlarge w3-text-light-grey w3-wide">PORTFOLIO</span>
-  </div>
-</div>
-
-<!-- Container (Portfolio Section) -->
-<div class="w3-content w3-container w3-padding-64">
-  <h2 class="w3-center">MY WORK</h2>
-  <p class="w3-center"><em>Here are some of my latest lorem work.<br> Click on the images to make them bigger</em></p><br>
-
-  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-  <div class="w3-row-padding w3-center">
-    <div class="w3-col m3">
-      <img src="https://unsplash.it/400/300?random" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="https://unsplash.it/400/301?random" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="https://unsplash.it/400/302?random" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="https://unsplash.it/400/303?random" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
-  </div>
-
-  <div class="w3-row-padding w3-center w3-section">
-    <div class="w3-col m3">
-      <img src="https://unsplash.it/400/304?random" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="https://unsplash.it/400/305?random" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="https://unsplash.it/400/306?random" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="https://unsplash.it/400/307?random" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
-  </div>
-</div>
-
-<!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-  <span class="w3-closebtn w3-hover-red w3-text-white w3-xxxlarge w3-container w3-display-topright">×</span>
-  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <img id="img01" style="max-width:100%">
-  </div>
-</div>
-
-<!-- Third Parallax Image with Portfolio Text -->
-<div class="bgimg-3 w3-display-container" id="contact">
-  <div class="w3-display-middle">
-    <h2 class="w3-xxlarge w3-text-light-grey w3-wide">CONTACT</h2>
-  </div>
-</div>
-
-<!-- Container (Contact Section) -->
-<div class="w3-content w3-container w3-padding-64">
-  <h3 class="w3-center">WHERE I WORK</h3>
-  <p class="w3-center"><em>I'd love your feedback!</em></p>
-
-  <address class="w3-row w3-padding-32 w3-section">
-    <div class="w3-col m4 w3-container">
-      <!-- Add Google Maps -->
-      <div id="googleMap" class="w3-round-large"></div>
-    </div>
-    <div class="w3-col m8 w3-container w3-section">
-      <div class="w3-large w3-margin-bottom">
-        <i class="fa fa-map-marker w3-hover-text-black" style="width:30px"></i> Kabankalan City, NIR, Philippines<br>
-        <i class="fa fa-phone w3-hover-text-black" style="width:30px"></i> Phone: +639 0744 38325<br>
-        <i class="fa fa-envelope w3-hover-text-black" style="width:30px"> </i> Email: christianpecson.io@gmail.com<br>
-      </div>
-      <p>Swing by for a cup of coffee, or leave me a note:</p>
-      <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-        <div class="w3-half">
-          <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Name">
+    <nav id="navbar" class="fixed w-full z-50 top-0 left-0 px-8 py-4 flex justify-between items-center text-white bg-transparent">
+        <a href="#home" class="text-2xl font-bold tracking-widest uppercase">João Victor</a>
+        <div class="space-x-8 font-medium hidden md:block">
+            <a href="#sobre" class="hover:text-blue-400 transition">Sobre</a>
+            <a href="#portfolio" class="hover:text-blue-400 transition">Portifólio</a>
+            <a href="#contato" class="hover:text-blue-400 transition">Contato</a>
         </div>
-        <div class="w3-half">
-          <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Email">
+    </nav>
+
+    <section id="home" class="parallax bg-img-1 flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="bg-black bg-opacity-70 text-white text-3xl md:text-5xl lg:text-6xl p-6 font-light tracking-tighter animate-fade-in">
+                JOÃO VICTOR <span class="hidden md:inline font-bold">BUENO CARNEIRO</span>
+            </h1>
         </div>
-      </div>
-      <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Comment">
-      <a href="mailto:christianpecson.io@gmail.com" class="w3-btn w3-section w3-right">SEND</a>
-    </div>
-  </address>
-</div>
+    </section>
 
-<!-- Footer -->
-<footer class="w3-center w3-dark-grey w3-padding-48 w3-hover-black cf">
-  <div class="w3-half">
-    <a target="_blank" href="https://www.freecodecamp.com/chpecson">
-      <i class="fa fa-fire fa-2x"></i>
-    </a>
-    <a target="_blank" href="https://www.facebook.com/chpecson">
-      <i class="fa fa-facebook fa-2x"></i>
-    </a>
-    <a target="_blank" href="https://codepen.io/chpecson/">
-      <i class="fa fa-codepen fa-2x"></i>
-    </a>
-  </div>
-  <p class="w3-half">Made with <span class="heart-icon">❤</span> by Christian Pecson and Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p>
-</footer>
-    <script src='https://maps.googleapis.com/maps/api/js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.4/SmoothScroll.min.js'></script><script  src="./script.js"></script>
+    <section id="sobre" class="py-20 bg-white px-6 md:px-20 lg:px-40">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-2">Sobre Mim</h2>
+            <p class="text-gray-500 italic text-lg mb-8">Engenheiro de Software e Desenvolvedor de sistemas</p>
+            
+            <p class="text-gray-700 leading-relaxed text-lg mb-10 text-justify">
+                Sou um <strong>Engenheiro de Software e Desenvolvedor Web</strong> apaixonado por transformar ideias complexas em soluções digitais elegantes. Atualmente residente no Mato Grosso, Brasil, baseio meu trabalho na paciência, precisão e dedicação total a cada projeto. Com 2 anos de experiência sólida no mercado, venho aprimorando meu arsenal tecnológico para entregar sistemas que não apenas funcionam, mas proporcionam experiências excepcionais. Sou movido pelo desafio de aprender novas ferramentas e metodologias para elevar o padrão do desenvolvimento de software.
+            </p>
 
-  </body>
-  
+            <div class="flex flex-col items-center gap-6">
+                <div class="h-48 rounded-full bg-gray-200 overflow-hidden shadow-xl border-4 border-white">
+                    <img src="/public/foto.svg" alt="Foto João Victor" class="w-full h-full object-cover">
+                </div>
+                <a href="/public/Curriculum_Joao_victor_2026.pdf" target="_blank" rel="noopener noreferrer" class="bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition flex items-center gap-2 shadow-lg">
+                    <i class="fas fa-download"></i> Baixar Currículo (PDF)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="parallax-sm bg-img-portfolio flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <h2 id="portfolio" class="relative z-10 bg-black bg-opacity-70 text-white text-3xl md:text-5xl p-4 tracking-widest uppercase">Portifólio</h2>
+    </section>
+
+    <section class="py-20 bg-white px-6 md:px-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=500" alt="Projeto 1" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-90 transition duration-300 flex flex-col justify-end p-6">
+                        <h3 class="text-white text-xl font-bold">E-commerce System</h3>
+                        <p class="text-gray-300 text-sm mb-4">React, Node.js, TailwindCSS</p>
+                        <a href="#" class="text-white border border-white px-4 py-1 text-sm inline-block w-fit hover:bg-white hover:text-black transition">Ver Projeto</a>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=500" alt="Projeto 2" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-90 transition duration-300 flex flex-col justify-end p-6">
+                        <h3 class="text-white text-xl font-bold">Dashboard Analítico</h3>
+                        <p class="text-gray-300 text-sm mb-4">Python, Vue.js, PostgreSQL</p>
+                        <a href="#" class="text-white border border-white px-4 py-1 text-sm inline-block w-fit hover:bg-white hover:text-black transition">Ver Projeto</a>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=500" alt="Projeto 3" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-90 transition duration-300 flex flex-col justify-end p-6">
+                        <h3 class="text-white text-xl font-bold">App Mobile de Finanças</h3>
+                        <p class="text-gray-300 text-sm mb-4">React Native, Firebase</p>
+                        <a href="#" class="text-white border border-white px-4 py-1 text-sm inline-block w-fit hover:bg-white hover:text-black transition">Ver Projeto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="parallax-sm bg-img-contact flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <h2 id="contato" class="relative z-10 bg-black bg-opacity-70 text-white text-3xl md:text-5xl p-4 tracking-widest uppercase">Contato</h2>
+    </section>
+
+    <section class="py-20 bg-white px-6 md:px-20">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="space-y-6">
+                <h3 class="text-2xl font-bold flex items-center gap-2">
+                    <i class="fas fa-map-marker-alt text-gray-600"></i> Informações de Contato
+                </h3>
+                <div class="text-gray-600 space-y-4">
+                    <p><strong>Localização:</strong><br>Barra do Garças – MT, Brasil<br>Rua Amaro Leite 873</p>
+                    <p><strong>E-mail:</strong><br><a href="mailto:joaovictor@phrasemidia.com.br" class="hover:text-black underline">joaovictor@phrasemidia.com.br</a></p>
+                    <p><strong>Telefone:</strong><br>Fixo: (66) 9999-9999<br>Celular: (61) 99372-6776</p>
+                </div>
+            </div>
+
+            <form class="space-y-4 shadow-2xl p-8 rounded-xl bg-gray-50">
+                <input type="text" placeholder="Nome" class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-black outline-none">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-black outline-none">
+                    <input type="tel" placeholder="Telefone" class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-black outline-none">
+                </div>
+                <input type="text" placeholder="Assunto" class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-black outline-none">
+                <textarea placeholder="Mensagem" rows="4" class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-black outline-none"></textarea>
+                <button type="submit" class="w-full bg-black text-white py-3 rounded hover:bg-gray-800 transition font-bold">ENVIAR MENSAGEM</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-gray-400 hover:bg-black transition-colors duration-700 text-white py-12">
+        <div class="text-center space-y-6">
+            <div class="flex justify-center gap-8 text-3xl">
+                <a href="#" class="hover:text-blue-600 transition transform hover:scale-110"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="hover:text-gray-300 transition transform hover:scale-110"><i class="fab fa-github"></i></a>
+                <a href="#" class="hover:text-pink-500 transition transform hover:scale-110"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-green-500 transition transform hover:scale-110"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="text-sm opacity-75">© 2026 Criado por João Victor B.C. | Direitos Reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        
+        // Efeito de rolagem do Navbar
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.remove('bg-transparent', 'text-white', 'py-4');
+                navbar.classList.add('bg-white', 'text-black', 'shadow-lg', 'py-2');
+            } else {
+                navbar.classList.add('bg-transparent', 'text-white', 'py-4');
+                navbar.classList.remove('bg-white', 'text-black', 'shadow-lg', 'py-2');
+            }
+        });
+
+        // Suporte extra para navegadores antigos no scroll suave (opcional)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
 </html>
