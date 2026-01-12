@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multishop | Detalhes do Projeto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        #navbar { transition: all 0.4s ease-in-out; }
+        .tech-badge { @apply bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-gray-200; }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <nav id="navbar" class="fixed w-full z-50 top-0 left-0 px-8 py-4 flex justify-between items-center text-black bg-white shadow-sm md:bg-transparent md:text-white">
+        <a href="index.html" class="text-black text-2xl font-bold tracking-widest uppercase">João Victor</a>
+        <div class="space-x-8 font-medium hidden md:block">
+            <a href="index.html#sobre" class="text-black hover:text-blue-400 transition">Sobre</a>
+            <a href="index.html#portfolio" class="text-black hover:text-blue-400 transition font-bold border-b-2 border-blue-400">Portifólio</a>
+            <a href="index.html#contato" class="text-black hover:text-blue-400 transition">Contato</a>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 bg-gray-50 px-6">
+        <div class="max-w-6xl mx-auto">
+            <nav class="text-sm text-gray-500 mb-4">
+                <a href="index.html" class="hover:text-black">Home</a> / 
+                <a href="index.html#portfolio" class="hover:text-black">Portifólio</a> / 
+                <span class="text-black font-semibold">Multishop</span>
+            </nav>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Multishop</h1>
+            <p class="text-xl text-gray-600 italic">Uma landing page para divulgação de produtos de perfumes, local e preferências.</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
+            <div class="lg:col-span-2 space-y-8">
+                <div class="rounded-xl overflow-hidden shadow-2xl">
+                    <img src="/public/projetos/multishop1.png" alt="Preview do Projeto" class="w-full h-auto">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="/public/projetos/multishop2.png" class="rounded-lg shadow hover:opacity-90 transition cursor-pointer">
+                    <img src="/public/projetos/multishop3.png" class="rounded-lg shadow hover:opacity-90 transition cursor-pointer">
+                </div>
+
+                <div class="prose prose-lg max-w-none text-gray-700">
+                    <h2 class="text-2xl font-bold text-black mb-4">Sobre o Projeto</h2>
+                    <p class="mb-4 text-justify leading-relaxed">
+                        O <strong>Multishop</strong> é uma solução de <em>landing page</em> de alto padrão desenvolvida especificamente para o segmento de perfumaria de luxo. O projeto foi estruturado para guiar o usuário por uma jornada de compra intuitiva, destacando vitrines de novos lançamentos, fluxos transparentes de logística e métodos de pagamento integrados. A arquitetura da página prioriza a <strong>estética sofisticada e a conversão</strong>, garantindo que o atendimento personalizado seja o ponto central da interação, transformando visitantes em clientes fidelizados através de uma comunicação visual clara, elegante e profissional.
+                    </p>
+                    <p class="text-justify leading-relaxed">
+                        No aspecto técnico, o Multishop utiliza uma arquitetura híbrida, combinando a agilidade do <strong>Elementor Pro</strong> com a customização precisa de <strong>HTML5, Tailwind CSS e JavaScript</strong>. Essa abordagem permitiu a criação de componentes exclusivos e otimizações de performance que superam os padrões convencionais de mercado. O uso do Tailwind proporcionou um controle minucioso sobre o <em>design system</em> e a responsividade da marca, resultando em um produto final que une a robustez de um sistema de vendas à leveza de uma interface moderna, ultra-rápida e totalmente otimizada para SEO.
+                    </p>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 shadow-sm">
+                    <h3 class="text-lg font-bold mb-4 uppercase tracking-wider">Tecnologias</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-bold">HTML5</span>
+                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold">JavaScript</span>
+                        <span class="bg-sky-100 text-sky-700 px-3 py-1 rounded-full text-sm font-bold">Tailwind CSS</span>
+                        <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-bold">MySQL</span>
+                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-bold">Elementor Pro</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <a href="https://multishopbg.com.br/" target="_blank" rel="noopener noreferrer" class="hidden flex items-center justify-center gap-3 bg-black text-white py-4 rounded-lg font-bold hover:bg-gray-800 transition shadow-lg">
+                        <i class="fas fa-external-link-alt"></i> Acessar Site Ao Vivo
+                    </a>
+                    <a href="https://github.com/dev-joaovb/interface-musitian" target="_blank" rel="noopener noreferrer" class="hidden flex items-center justify-center gap-3 border-2 border-black text-black py-4 rounded-lg font-bold hover:bg-black hover:text-white transition">
+                        <i class="fab fa-github text-xl"></i> Ver Código Fonte
+                    </a>
+                </div>
+
+                <div class="pt-6 border-t border-gray-200 text-sm text-gray-500 space-y-2">
+                    <p><strong>Cliente:</strong> Multishop</p>
+                    <p><strong>Ano:</strong> 2025</p>
+                    <p><strong>Serviço:</strong> Low Code Development</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-600 hover:bg-black transition-colors duration-700 text-white py-12 mt-20">
+        <div class="text-center space-y-6">
+            <div class="flex justify-center gap-8 text-3xl">
+                <a href="https://www.linkedin.com/in/sejoaovb" class="hover:text-blue-600 transition transform hover:scale-110"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/dev-joaovb" class="hover:text-gray-300 transition transform hover:scale-110"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/sejoaovb/" class="hover:text-pink-500 transition transform hover:scale-110"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5561993726776" class="hover:text-green-500 transition transform hover:scale-110"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="text-sm opacity-75">© 2026 Criado por João Victor B.C. | Direitos Reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.remove('md:bg-transparent', 'md:text-white', 'py-4');
+                navbar.classList.add('bg-white', 'text-black', 'shadow-lg', 'py-2');
+            } else {
+                // No mobile o navbar sempre será branco para legibilidade
+                if (window.innerWidth > 768) {
+                    navbar.classList.add('md:bg-transparent', 'md:text-white', 'py-4');
+                    navbar.classList.remove('bg-white', 'text-black', 'shadow-lg', 'py-2');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
