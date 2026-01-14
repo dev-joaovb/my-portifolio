@@ -44,6 +44,54 @@
             transform: translateY(0);
         }
 
+        @keyframes moveStars {
+            from { transform: translateY(0); }
+            to { transform: translateY(-1000px); }
+        }
+
+        .space-bg {
+            /* Gradiente sideral: Azul muito profundo para o preto */
+            background: radial-gradient(circle at center, #111827 0%, #030712 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Camada de Estrelas 1 (Pequenas) */
+        .stars-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50px 100px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 130px 80px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 160px 120px, #ffffff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 250px 250px;
+            opacity: 0.3;
+            animation: moveStars 100s linear infinite;
+        }
+
+        /* Camada de Estrelas 2 (Brilho variante) */
+        .stars-layer-2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                radial-gradient(1.5px 1.5px at 100px 150px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 200px 300px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 300px 50px, #ffffff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 400px 400px;
+            opacity: 0.2;
+            animation: moveStars 150s linear infinite;
+        }
+
         /* Transição suave para o Navbar */
         #navbar { transition: all 0.4s ease-in-out; }
     </style>
@@ -165,118 +213,122 @@
         </h2>
     </section>
 
-    <section class="py-20 bg-gray-900 overflow-hidden">
-      <div class="max-w-6xl mx-auto px-6">
-          <h2 class="text-4xl font-bold text-center mb-20 uppercase tracking-tight text-white">Educação e Experiência</h2>
+    <section class="py-20 space-bg overflow-hidden">
+        <div class="stars-layer"></div>
+        <div class="stars-layer-2"></div>
 
-          <div class="relative">
-              <div class="absolute left-1/2 transform -translate-x-1/2 w-[2px] bg-gray-200 h-full hidden md:block"></div>
 
-              <div class="space-y-12 md:space-y-0">
-                  
-                  <div class="reveal flex flex-col md:flex-row items-center justify-between w-full md:mb-16">
-                      <div class="order-1 md:w-[45%]">
-                          <img src="/public/linha_do_tempo/evento_1.svg" alt="Bacharel Engenharia" class="shadow-sm hover:shadow-md transition-shadow w-full">
-                      </div>
-                      <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
-                      
-                      <div class="order-1 md:w-[45%] px-4 py-2">
-                          <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2019 — 2023</p>
-                      </div>
-                  </div>
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <h2 class="text-4xl font-bold text-center mb-20 uppercase tracking-tight text-white">Educação e Experiência</h2>
 
-                  <div class="reveal flex flex-col md:flex-row-reverse items-center justify-between w-full md:mb-16">
-                      <div class="order-1 md:w-[45%]">
-                          <img src="/public/linha_do_tempo/evento_2.svg" alt="Curso Web" class="shadow-sm hover:shadow-md transition-shadow w-full">
-                      </div>
-                      <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
-                      
-                      <div class="order-1 md:w-[45%] px-4 py-2 md:text-right">
-                          <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2021 — 2022</p>
-                      </div>
-                  </div>
+            <div class="relative">
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-[2px] bg-gray-700 h-full hidden md:block"></div>
 
-                  <div class="reveal flex flex-col md:flex-row items-center justify-between w-full md:mb-16">
-                      <div class="order-1 md:w-[45%]">
-                          <img src="/public/linha_do_tempo/evento_3.svg" alt="Design Figma" class="shadow-sm hover:shadow-md transition-shadow w-full">
-                      </div>
-                      <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
-                      
-                      <div class="order-1 md:w-[45%] px-4 py-2">
-                          <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2022 — 2023</p>
-                      </div>
-                  </div>
+                <div class="space-y-12 md:space-y-0">
+                    
+                    <div class="reveal flex flex-col md:flex-row items-center justify-between w-full md:mb-16">
+                        <div class="order-1 md:w-[45%]">
+                            <img src="/public/linha_do_tempo/evento_1.svg" alt="Bacharel Engenharia" 
+                                class="w-full cursor-pointer transition-all duration-500 ease-in-out transform hover:scale-105 hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-white/10">
+                        </div>
+                        <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
+                        <div class="order-1 md:w-[45%] px-4 py-2">
+                            <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2019 — 2023</p>
+                        </div>
+                    </div>
 
-                  <div class="reveal flex flex-col md:flex-row-reverse items-center justify-between w-full md:mb-16">
-                      <div class="order-1 md:w-[45%]">
-                          <img src="/public/linha_do_tempo/evento_4.svg" alt="Análise de Dados" class="shadow-sm hover:shadow-md transition-shadow w-full">
-                      </div>
-                      <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
-                      
-                      <div class="order-1 md:w-[45%] px-4 py-2 md:text-right">
-                          <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2023 — 2023</p>
-                      </div>
-                  </div>
+                    <div class="reveal flex flex-col md:flex-row-reverse items-center justify-between w-full md:mb-16">
+                        <div class="order-1 md:w-[45%]">
+                            <img src="/public/linha_do_tempo/evento_2.svg" alt="Curso Web" 
+                                class="w-full cursor-pointer transition-all duration-500 ease-in-out transform hover:scale-105 hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-white/10">
+                        </div>
+                        <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
+                        <div class="order-1 md:w-[45%] px-4 py-2 md:text-right">
+                            <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2021 — 2022</p>
+                        </div>
+                    </div>
 
-                  <div class="reveal flex flex-col md:flex-row items-center justify-between w-full md:mb-16">
-                      <div class="order-1 md:w-[45%]">
-                          <img src="/public/linha_do_tempo/evento_5.svg" alt="Desenvolvimento Django" class="shadow-sm hover:shadow-md transition-shadow w-full">
-                      </div>
-                      <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
-                      
-                      <div class="order-1 md:w-[45%] px-4 py-2">
-                          <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2023 — 2023</p>
-                      </div>
-                  </div>
+                    <div class="reveal flex flex-col md:flex-row items-center justify-between w-full md:mb-16">
+                        <div class="order-1 md:w-[45%]">
+                            <img src="/public/linha_do_tempo/evento_3.svg" alt="Design Figma" 
+                                class="w-full cursor-pointer transition-all duration-500 ease-in-out transform hover:scale-105 hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-white/10">
+                        </div>
+                        <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
+                        <div class="order-1 md:w-[45%] px-4 py-2">
+                            <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2022 — 2023</p>
+                        </div>
+                    </div>
 
-                  <div class="reveal flex flex-col md:flex-row-reverse items-center justify-between w-full md:mb-16">
-                      <div class="order-1 md:w-[45%]">
-                          <img src="/public/linha_do_tempo/evento_6.svg" alt="Projeto 146" class="shadow-sm hover:shadow-md transition-shadow w-full">
-                      </div>
-                      <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
-                      
-                      <div class="order-1 md:w-[45%] px-4 py-2 md:text-right">
-                          <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2024 — 2024</p>
-                      </div>
-                  </div>
+                    <div class="reveal flex flex-col md:flex-row-reverse items-center justify-between w-full md:mb-16">
+                        <div class="order-1 md:w-[45%]">
+                            <img src="/public/linha_do_tempo/evento_4.svg" alt="Análise de Dados" 
+                                class="w-full cursor-pointer transition-all duration-500 ease-in-out transform hover:scale-105 hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-white/10">
+                        </div>
+                        <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
+                        <div class="order-1 md:w-[45%] px-4 py-2 md:text-right">
+                            <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2023 — 2023</p>
+                        </div>
+                    </div>
 
-                  <div class="reveal flex flex-col md:flex-row items-center justify-between w-full md:mb-16">
-                      <div class="order-1 md:w-[45%]">
-                          <img src="/public/linha_do_tempo/evento_7.svg" alt="WordPress" class="shadow-sm hover:shadow-md transition-shadow w-full">
-                      </div>
-                      <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
-                      
-                      <div class="order-1 md:w-[45%] px-4 py-2">
-                          <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2024 — 2024</p>
-                      </div>
-                  </div>
+                    <div class="reveal flex flex-col md:flex-row items-center justify-between w-full md:mb-16">
+                        <div class="order-1 md:w-[45%]">
+                            <img src="/public/linha_do_tempo/evento_5.svg" alt="Desenvolvimento Django" 
+                                class="w-full cursor-pointer transition-all duration-500 ease-in-out transform hover:scale-105 hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-white/10">
+                        </div>
+                        <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
+                        <div class="order-1 md:w-[45%] px-4 py-2">
+                            <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2023 — 2023</p>
+                        </div>
+                    </div>
 
-                  <div class="reveal flex flex-col md:flex-row-reverse items-center justify-between w-full md:mb-16">
-                      <div class="order-1 md:w-[45%]">
-                          <img src="/public/linha_do_tempo/evento_8.svg" alt="pos graduacao" class="shadow-sm hover:shadow-md transition-shadow w-full">
-                      </div>
-                      <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
-                      
-                      <div class="order-1 md:w-[45%] px-4 py-2 md:text-right">
-                          <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2025 — 2026</p>
-                      </div>
-                  </div>
+                    <div class="reveal flex flex-col md:flex-row-reverse items-center justify-between w-full md:mb-16">
+                        <div class="order-1 md:w-[45%]">
+                            <img src="/public/linha_do_tempo/evento_6.svg" alt="Projeto 146" 
+                                class="w-full cursor-pointer transition-all duration-500 ease-in-out transform hover:scale-105 hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-white/10">
+                        </div>
+                        <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
+                        <div class="order-1 md:w-[45%] px-4 py-2 md:text-right">
+                            <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2024 — 2024</p>
+                        </div>
+                    </div>
 
-                  <div class="reveal flex flex-col md:flex-row items-center justify-between w-full md:mb-16">
-                      <div class="order-1 md:w-[45%]">
-                          <img src="/public/linha_do_tempo/evento_9.svg" alt="harmony" class="shadow-sm hover:shadow-md transition-shadow w-full">
-                      </div>
-                      <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
-                      
-                      <div class="order-1 md:w-[45%] px-4 py-2">
-                          <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2025 — 2026</p>
-                      </div>
-                  </div>
+                    <div class="reveal flex flex-col md:flex-row items-center justify-between w-full md:mb-16">
+                        <div class="order-1 md:w-[45%]">
+                            <img src="/public/linha_do_tempo/evento_7.svg" alt="WordPress" 
+                                class="w-full cursor-pointer transition-all duration-500 ease-in-out transform hover:scale-105 hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-white/10">
+                        </div>
+                        <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
+                        <div class="order-1 md:w-[45%] px-4 py-2">
+                            <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2024 — 2024</p>
+                        </div>
+                    </div>
 
-              </div>
-          </div>
-      </div>
-  </section>
+                    <div class="reveal flex flex-col md:flex-row-reverse items-center justify-between w-full md:mb-16">
+                        <div class="order-1 md:w-[45%]">
+                            <img src="/public/linha_do_tempo/evento_8.svg" alt="Pos graduação" 
+                                class="w-full cursor-pointer transition-all duration-500 ease-in-out transform hover:scale-105 hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-white/10">
+                        </div>
+                        <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
+                        <div class="order-1 md:w-[45%] px-4 py-2 md:text-right">
+                            <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2025 — 2026</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal flex flex-col md:flex-row items-center justify-between w-full md:mb-16">
+                        <div class="order-1 md:w-[45%]">
+                            <img src="/public/linha_do_tempo/evento_9.svg" alt="Harmony" 
+                                class="w-full cursor-pointer transition-all duration-500 ease-in-out transform hover:scale-105 hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-white/10">
+                        </div>
+                        <div class="z-20 flex items-center order-1 bg-black w-4 h-4 rounded-full border-2 border-white shadow-sm"></div>
+                        <div class="order-1 md:w-[45%] px-4 py-2">
+                            <p class="text-lg font-bold italic text-gray-200 tracking-tighter">2025 — 2026</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="contato" class="parallax-sm bg-img-contact flex items-center justify-center relative h-[50vh] md:h-[70vh]">
         <div class="absolute inset-0 bg-black opacity-50"></div>
