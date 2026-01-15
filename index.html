@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        #home {
+            position: relative;
+            overflow: hidden; /* Isso impede que qualquer elemento saia pelas laterais */
+            width: 100%;
+        }
+
         /* Efeito Parallax */
         .parallax {
             background-attachment: fixed;
@@ -28,8 +34,62 @@
         /* Imagens de fundo (Substitua pelos seus links) */
         .bg-img-1 { background-image: url('/public/foto1.jpg'); }
         .bg-img-portfolio { background-image: url('/public/foto8.jpg'); }
-        .bg-img-contact { background-image: url('/public/foto9.jpg'); }
+        .bg-img-contact { background-image: url('/public/foto14.jpg'); }
         .bg-img-resumo { background-image: url('/public/foto10.jpg'); }
+
+        /* Efeito de brilho dourado que pulsa levemente como o reflexo no mar */
+        .ocean-reflection {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 30%;
+            background: radial-gradient(ellipse at center, rgba(251, 191, 36, 0.2) 0%, transparent 70%);
+            filter: blur(40px);
+            animation: reflection-pulse 8s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        .bird {
+            position: absolute;
+            z-index: 5;
+            pointer-events: none;
+            will-change: transform;
+        }
+
+        /* O pássaro em si (SVG de silhueta) */
+        .bird-body {
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path d="M13,10c-3-2-7-1-10,2c3-1,7-1,10,0c3-1,7-1,10,0C20,9,16,8,13,10z"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: wing-flap 0.6s ease-in-out infinite alternate;
+            filter: brightness(0); /* Fica preto como uma silhueta no pôr do sol */
+            opacity: 0.8;
+        }
+
+        /* Animação de bater asas */
+        @keyframes wing-flap {
+            from { transform: scaleY(0.4) rotate(-5deg); }
+            to { transform: scaleY(1) rotate(5deg); }
+        }
+
+        /* Animação de cruzar a tela */
+        .fly-animation {
+            animation: cross-screen linear forwards;
+        }
+
+        @keyframes cross-screen {
+            from { transform: translateX(-100px); }
+            to { transform: translateX(calc(100vw + 100px)); }
+        }
+
+        @keyframes reflection-pulse {
+            0%, 100% { opacity: 0.4; transform: translateX(-50%) scale(1); }
+            50% { opacity: 0.8; transform: translateX(-50%) scale(1.1); }
+        }
 
         /* Classe para esconder os itens da timeline antes da animação */
         .reveal {
@@ -42,6 +102,28 @@
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Transição: Roxo (Foto 1) -> Amarelado Escuro (Foto 8) */
+        .bg-purple-to-amber {
+            background: linear-gradient(to bottom, 
+                #2d1b36 0%,    /* Roxo da base da foto 1 */
+                #713f12 100%   /* Amarelado escuro da foto 8 */
+            );
+        }
+
+        /* Transição: Dourado Escuro (Foto 8) -> Azul Marinho -> Preto Espacial */
+        .bg-sunset-to-space {
+            background: linear-gradient(to bottom, 
+                #713f12 0%,    /* Amarelado escuro/queimado da Foto 8 */
+                #1e1b4b 40%,   /* Azul Marinho que você aprovou */
+                #030712 100%   /* Conexão com o Espaço Sideral */
+            );
+        }
+
+        /* Efeito de brilho sutil nos cards para combinar com o tom dourado */
+        .card-glow:hover {
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.1); /* Brilho âmbar sutil */
         }
 
         @keyframes moveStars {
@@ -92,24 +174,147 @@
             animation: moveStars 150s linear infinite;
         }
 
-        /* Transição suave para o Navbar */
-        #navbar { transition: all 0.4s ease-in-out; }
+        .bg-deep-void {
+            background-color: #000000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Nébulas sutis ao fundo */
+        .nebula {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .nebula-purple { width: 400px; height: 400px; background: #8b5cf6; top: -10%; right: -5%; }
+        .nebula-blue { width: 300px; height: 300px; background: #3b82f6; bottom: 10%; left: -5%; }
+
+        /* Efeito de vidro futurista para o formulário */
+        .glass-form {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Inputs que brilham ao focar */
+        .space-input {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+            transition: all 0.3s ease;
+        }
+
+        .space-input:focus {
+            border-color: #8b5cf6 !important;
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+            background: rgba(255, 255, 255, 0.08) !important;
+        }
+
+        #navbar { 
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+
+        /* Classe ativada no Scroll */
+        .glass-nav {
+            background: rgba(0, 0, 0, 0.6) !important; /* Fundo escuro translúcido */
+            backdrop-filter: blur(12px); /* Desfoque do fundo */
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Linha fina de luz */
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Efeito de linha animada nos links */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(to right, #8b5cf6, #3b82f6);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .shooting-star {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 
+                        0 0 0 8px rgba(255, 255, 255, 0.1), 
+                        0 0 20px rgba(255, 255, 255, 1);
+            z-index: 5;
+            opacity: 0;
+        }
+
+        /* O rastro da estrela */
+        .shooting-star::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 150px;
+            height: 1px;
+            background: linear-gradient(90deg, #fff, transparent);
+        }
+
+        /* Animação do disparo */
+        .animate-star {
+            animation: shooting 1.5s ease-out forwards;
+        }
+
+        @keyframes shooting {
+            0% {
+                transform: rotate(315deg) translateX(0);
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(315deg) translateX(-1000px);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <nav id="navbar" class="fixed w-full z-50 top-0 left-0 px-8 py-4 flex justify-between items-center text-white bg-transparent">
-        <a href="#home" class="text-2xl font-bold tracking-widest uppercase">João Victor</a>
-        <div class="space-x-8 font-medium hidden md:block">
-            <a href="#sobre" class="hover:text-blue-400 transition">Sobre</a>
-            <a href="#portfolio" class="hover:text-blue-400 transition">Portifólio</a>
-            <a href="#resumo" class="hover:text-blue-400 transition">Resumo</a>
-            <a href="#contato" class="hover:text-blue-400 transition">Contato</a>
+    <nav id="navbar" class="fixed w-full z-50 top-0 left-0 px-8 md:px-20 py-4 flex justify-between items-center text-white bg-transparent">
+        <a href="#home" class="text-2xl font-bold tracking-widest uppercase group"> 
+            JOÃO VICTOR B. C.
+        </a>
+
+        <div class="space-x-8 font-medium hidden md:flex">
+            <a href="#sobre" class="nav-link hover:text-purple-300 transition-colors">Sobre</a>
+            <a href="#portfolio" class="nav-link hover:text-purple-300 transition-colors">Portfólio</a>
+            <a href="#resumo" class="nav-link hover:text-purple-300 transition-colors">Resumo</a>
+            <a href="#contato" class="nav-link hover:text-purple-300 transition-colors">Contato</a>
+        </div>
+
+        <div class="hidden md:block">
+            <a href="#contato" class="border border-white/20 px-5 py-2 rounded-full text-sm hover:bg-white hover:text-black transition-all">
+                Contratar
+            </a>
         </div>
     </nav>
 
     <section id="home" class="parallax bg-img-1 flex items-center justify-center relative">
         <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="ocean-reflection"></div>
+        
         <div class="relative z-10 text-center px-4">
             <h1 class="bg-black bg-opacity-70 text-white text-3xl md:text-5xl lg:text-6xl p-6 font-light tracking-tighter animate-fade-in">
                 JOÃO VICTOR <span class="">BUENO CARNEIRO</span>
@@ -117,22 +322,31 @@
         </div>
     </section>
 
-    <section id="sobre" class="py-20 bg-white px-6 md:px-20 lg:px-40">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-2">Sobre Mim</h2>
-            <p class="text-gray-500 italic text-lg mb-8">Engenheiro de Software e Desenvolvedor de sistemas</p>
-            
-            <p class="text-gray-700 leading-relaxed text-lg mb-10 text-justify">
-                Sou um <strong>Engenheiro de Software e Desenvolvedor Web</strong> apaixonado por transformar ideias complexas em soluções digitais elegantes. Atualmente residente no Mato Grosso, Brasil, baseio meu trabalho na paciência, precisão e dedicação total a cada projeto. Com 2 anos de experiência sólida no mercado, venho aprimorando meu arsenal tecnológico para entregar sistemas que não apenas funcionam, mas proporcionam experiências excepcionais. Sou movido pelo desafio de aprender novas ferramentas e metodologias para elevar o padrão do desenvolvimento de software.
-            </p>
+    <section id="sobre" class="py-24 bg-purple-to-amber px-6 md:px-20 lg:px-40 relative">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-gradient-to-b from-[#f26444]/20 to-transparent blur-3xl"></div>
 
-            <div class="flex flex-col items-center gap-6">
-                <div class="">
-                    <img src="/public/foto.svg" alt="Foto João Victor" class="object-cover h-[30vh] w-[30vh]">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="text-4xl font-bold mb-2 text-white uppercase tracking-wider">Sobre Mim</h2>
+            <p class="text-amber-200/80 italic text-lg mb-10">Engenheiro de Software e Desenvolvedor de Sistemas</p>
+            
+            <div class="bg-black/20 p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl backdrop-blur-md">
+                <p class="text-gray-200 leading-relaxed text-lg mb-10 text-justify">
+                    Sou um <strong>Engenheiro de Software e Desenvolvedor Web</strong> apaixonado por transformar ideias complexas em soluções digitais elegantes. Atualmente residente no Mato Grosso, Brasil, baseio meu trabalho na paciência, precisão e dedicação total a cada projeto. Com 2 anos de experiência sólida no mercado, venho aprimorando meu arsenal tecnológico para entregar sistemas que não apenas funcionam, mas proporcionam experiências excepcionais. Sou movido pelo desafio de aprender novas ferramentas e metodologias para elevar o padrão do desenvolvimento de software.
+                </p>
+
+                <div class="flex flex-col items-center gap-8">
+                    <div class="">
+                        <img src="/public/foto.svg" alt="Foto João Victor" class="object-cover h-40 w-40 rounded-full border-2 border-amber-400/30">
+                    </div>
+                    
+                    <a href="/public/Curriculum_Joao_victor_2026.pdf" target="_blank" rel="noopener noreferrer" 
+                      class="group relative bg-white text-black px-10 py-4 rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-lg">
+                        <span class="relative z-10 flex items-center gap-2">
+                            <i class="fas fa-file-pdf"></i> Ver Currículo (PDF)
+                        </span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </a>
                 </div>
-                <a href="/public/Curriculum_Joao_victor_2026.pdf" target="_blank" rel="noopener noreferrer" class="bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition flex items-center gap-2 shadow-lg">
-                    <i class="fas fa-eye"></i> Ver Currículo (PDF)
-                </a>
             </div>
         </div>
     </section>
@@ -142,12 +356,13 @@
         <h2  class="relative z-10 bg-black bg-opacity-70 text-white text-3xl md:text-5xl p-4 tracking-widest uppercase">Portifólio</h2>
     </section>
 
-    <section class="py-20 bg-white px-6 md:px-20">
+    <section id="trabalhos" class="py-24 bg-sunset-to-space px-6 md:px-20 relative">
+      <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#2d1b36]/50 to-transparent"></div>
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-2">Meus Trabalhos</h2>
-            <p class="text-gray-500 italic text-lg mb-8">Engenharia de Software e Desenvolvimento de sistemas</p>
+            <h2 class="text-4xl font-bold mb-2 text-white">Meus Trabalhos</h2>
+            <p class="text-gray-200 italic text-lg mb-8">Engenharia de Software e Desenvolvimento de sistemas</p>
             
-            <p class="text-gray-700 leading-relaxed text-lg mb-10 text-justify">
+            <p class="text-gray-300 leading-relaxed text-lg mb-10 text-justify">
                 Ao longo da minha jornada, tenho desenvolvido projetos que equilibram <strong>estética moderna e arquitetura robusta</strong>. Meu portfólio reflete a criação de aplicações escaláveis, desde interfaces front-end responsivas até sistemas de back-end complexos e seguros. Utilizo tecnologias de ponta como <strong>React, Node.js e Tailwind CSS, também com ferramentas de IA como N8n e de Low/No Code como Wordpress, Elementor e WooCommerce</strong> para garantir que cada solução seja otimizada para alta performance e excelente experiência do usuário. Meu foco é traduzir requisitos de negócio em <strong>código limpo e funcional</strong>, sempre priorizando a agilidade e a entrega de valor real em cada linha de software que escrevo.
             </p>
         </div>
@@ -219,7 +434,7 @@
 
 
         <div class="max-w-6xl mx-auto px-6 relative z-10">
-            <h2 class="text-4xl font-bold text-center mb-20 uppercase tracking-tight text-white">Educação e Experiência</h2>
+            <h2 class="text-4xl font-bold text-center mb-20 uppercase tracking-tight text-white">Educação & Experiência</h2>
 
             <div class="relative">
                 <div class="absolute left-1/2 transform -translate-x-1/2 w-[2px] bg-gray-700 h-full hidden md:block"></div>
@@ -332,58 +547,93 @@
 
     <section id="contato" class="parallax-sm bg-img-contact flex items-center justify-center relative h-[50vh] md:h-[70vh]">
         <div class="absolute inset-0 bg-black opacity-50"></div>
-        <h2 class="relative z-10 bg-black bg-opacity-70 text-white text-3xl md:text-5xl p-4 tracking-widest uppercase">Contato</h2>
+        <h2 class="relative z-10 bg-gray-800 bg-opacity-70 text-white text-3xl md:text-5xl p-4 tracking-widest uppercase">Contato</h2>
     </section>
 
-    <section class="py-20 bg-white px-6 md:px-20">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="space-y-6">
-                <h3 class="text-2xl font-bold flex items-center gap-2">
-                    <i class="fas fa-map-marker-alt text-gray-600"></i> Informações de Contato
-                </h3>
-                <div class="text-gray-600 space-y-4">
-                    <p><strong>Localização:</strong><br>Barra do Garças – MT, Brasil<br>Rua Amaro Leite 873</p>
-                    <p><strong>E-mail:</strong><br><a href="mailto:joaovictor@phrasemidia.com.br" class="hover:text-black underline">joaovictor@phrasemidia.com.br</a></p>
-                    <p><strong>Telefone:</strong><br>Fixo: (66) 9999-9999<br>Celular: (61) 99372-6776</p>
+    <section id="contato" class="pt-24 bg-deep-void relative flex flex-col min-h-screen">
+        <div class="stars-layer"></div>
+        <div class="stars-layer-2"></div>
+        <div class="nebula nebula-purple"></div>
+        <div class="nebula nebula-blue"></div>
+
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10 w-full mb-24 px-6 md:px-20">
+            
+            <div class="space-y-10">
+                <div>
+                    <h2 class="text-4xl font-bold text-white mb-4 tracking-tighter uppercase">Vamos conversar?</h2>
+                    <p class="text-gray-400 text-lg">Estou pronto para transformar sua próxima ideia em realidade digital.</p>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="group flex items-start gap-4">
+                        <div class="bg-purple-500/10 p-4 rounded-lg border border-purple-500/20 group-hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-all">
+                            <i class="fas fa-map-marker-alt text-purple-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold mb-1">Localização</h4>
+                            <p class="text-gray-400">Barra do Garças – MT, Brasil</p>
+                        </div>
+                    </div>
+
+                    <div class="group flex items-start gap-4">
+                        <div class="bg-blue-500/10 p-4 rounded-lg border border-blue-500/20 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all">
+                            <i class="fas fa-envelope text-blue-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold mb-1">E-mail</h4>
+                            <a href="mailto:joaovictor@phrasemidia.com.br" class="text-gray-400 hover:text-white transition underline decoration-blue-500/30">joaovictor@phrasemidia.com.br</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <form class="space-y-4 shadow-2xl p-8 rounded-xl bg-gray-50">
-                <input type="text" placeholder="Nome" class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-black outline-none">
+            <form class="glass-form p-8 md:p-10 rounded-2xl space-y-5 shadow-2xl">
+                <input type="text" placeholder="Seu Nome" class="space-input w-full p-4 rounded-xl outline-none">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-black outline-none">
-                    <input type="tel" placeholder="Telefone" class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-black outline-none">
+                    <input type="email" placeholder="E-mail" class="space-input w-full p-4 rounded-xl outline-none">
+                    <input type="tel" placeholder="Telefone" class="space-input w-full p-4 rounded-xl outline-none">
                 </div>
-                <input type="text" placeholder="Assunto" class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-black outline-none">
-                <textarea placeholder="Mensagem" rows="4" class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-black outline-none"></textarea>
-                <button type="submit" class="w-full bg-black text-white py-3 rounded hover:bg-gray-800 transition font-bold">ENVIAR MENSAGEM</button>
+                <textarea placeholder="Como posso ajudar?" rows="4" class="space-input w-full p-4 rounded-xl outline-none"></textarea>
+                <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-4 rounded-xl font-bold">LANÇAR MENSAGEM</button>
             </form>
         </div>
-    </section>
 
-    <footer class="bg-gray-600 hover:bg-black transition-colors duration-700 text-white py-12 mt-20">
-        <div class="text-center space-y-6">
-            <div class="flex justify-center gap-8 text-3xl">
-                <a href="https://www.linkedin.com/in/sejoaovb" class="hover:text-blue-600 transition transform hover:scale-110"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/dev-joaovb" class="hover:text-gray-300 transition transform hover:scale-110"><i class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/sejoaovb/" class="hover:text-pink-500 transition transform hover:scale-110"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/5561993726776" class="hover:text-green-500 transition transform hover:scale-110"><i class="fab fa-whatsapp"></i></a>
+        <footer class="mt-auto border-t border-white/5 bg-transparent hover:bg-white/5 transition-all duration-1000 ease-in-out py-12 relative z-10 w-full">
+            <div class="max-w-6xl mx-auto text-center space-y-8 px-6">
+                
+                <div class="flex justify-center gap-10 text-3xl">
+                    <a href="https://www.linkedin.com/in/sejoaovb" target="_blank" class="text-gray-400 hover:text-blue-500 transition-all transform hover:scale-125"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/dev-joaovb" target="_blank" class="text-gray-400 hover:text-white transition-all transform hover:scale-125"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/sejoaovb/" target="_blank" class="text-gray-400 hover:text-pink-500 transition-all transform hover:scale-125"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5561993726776" target="_blank" class="text-gray-400 hover:text-green-500 transition-all transform hover:scale-125"><i class="fab fa-whatsapp"></i></a>
+                </div>
+
+                <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-gray-700 to-transparent mx-auto"></div>
+
+                <div class="space-y-2">
+                    <p class="text-sm tracking-widest text-gray-500 uppercase">
+                        © 2026 Criado por <span class="text-gray-300 font-bold">João Victor B.C.</span>
+                    </p>
+                    <p class="text-[10px] text-gray-600 uppercase tracking-[0.2em]">
+                        Engenharia de Software & Design Digital
+                    </p>
+                </div>
             </div>
-            <p class="text-sm opacity-75">© 2026 Criado por João Victor B.C. | Direitos Reservados</p>
-        </div>
-    </footer>
+        </footer>
+    </section>
 
     <script>
         const navbar = document.getElementById('navbar');
-        
-        // Efeito de rolagem do Navbar
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                navbar.classList.remove('bg-transparent', 'text-white', 'py-4');
-                navbar.classList.add('bg-white', 'text-black', 'shadow-lg', 'py-2');
+                // Estilo ao rolar: Vidro escuro e compacto
+                navbar.classList.add('glass-nav', 'py-2');
+                navbar.classList.remove('py-4');
             } else {
-                navbar.classList.add('bg-transparent', 'text-white', 'py-4');
-                navbar.classList.remove('bg-white', 'text-black', 'shadow-lg', 'py-2');
+                // Estilo inicial: Transparente e espaçoso
+                navbar.classList.remove('glass-nav', 'py-2');
+                navbar.classList.add('py-4');
             }
         });
 
@@ -415,6 +665,101 @@
         document.querySelectorAll('.reveal').forEach(el => {
             revealObserver.observe(el);
         });
+
+        function createBirdGroup() {
+            const section = document.getElementById('home');
+            if (!section) return; // Segurança caso a seção não exista
+
+            const numBirds = Math.floor(Math.random() * 4) + 1;
+            const isDistant = Math.random() > 0.5;
+            const baseHeight = 20 + Math.random() * 40;
+            
+            for (let i = 0; i < numBirds; i++) {
+                setTimeout(() => {
+                    const birdContainer = document.createElement('div');
+                    // Adicionamos 'pointer-events-none' via JS para garantir que não interfira em cliques
+                    birdContainer.className = 'bird fly-animation pointer-events-none';
+                    
+                    const size = isDistant ? (10 + Math.random() * 10) : (30 + Math.random() * 20);
+                    const speed = isDistant ? (15 + Math.random() * 10) : (8 + Math.random() * 5);
+                    const individualHeight = baseHeight + (Math.random() * 10 - 5);
+                    
+                    birdContainer.style.width = `${size}px`;
+                    birdContainer.style.height = `${size}px`;
+                    birdContainer.style.top = `${individualHeight}%`;
+                    birdContainer.style.left = `-100px`; // Começa fora da tela à esquerda
+                    birdContainer.style.animationDuration = `${speed}s`;
+                    birdContainer.style.position = 'absolute'; // Garante o posicionamento
+                    
+                    const birdBody = document.createElement('div');
+                    birdBody.className = 'bird-body';
+                    birdBody.style.animationDuration = `${0.4 + Math.random() * 0.4}s`;
+                    
+                    birdContainer.appendChild(birdBody);
+                    section.appendChild(birdContainer);
+
+                    // REMOÇÃO SEGURA: 
+                    // Usamos o evento 'animationend' em vez de setTimeout puro, 
+                    // assim o navegador deleta o pássaro no milissegundo em que a animação acaba.
+                    birdContainer.addEventListener('animationend', () => {
+                        birdContainer.remove();
+                    });
+
+                    // Fallback de segurança (caso a aba seja minimizada e a animação pause)
+                    setTimeout(() => {
+                        if(birdContainer.parentNode) birdContainer.remove();
+                    }, (speed + 2) * 1000);
+
+                }, i * 600);
+            }
+            
+            scheduleNextBirds();
+        }
+
+        function scheduleNextBirds() {
+            // Passa um grupo a cada 40 a 100 segundos
+            const nextInterval = 40000 + Math.random() * 60000;
+            setTimeout(createBirdGroup, nextInterval);
+        }
+
+        // Inicia o ciclo
+        scheduleNextBirds();
+
+        function createShootingStar() {
+            const section = document.getElementById('contato');
+            const star = document.createElement('div');
+            star.className = 'shooting-star';
+            
+            // Posiciona a estrela em um lugar aleatório no topo ou lateral direita
+            const randomTop = Math.random() * 200; // Até 200px do topo
+            const randomLeft = 50 + (Math.random() * 50); // Lado direito para cruzar para a esquerda
+            
+            star.style.top = `${randomTop}px`;
+            star.style.left = `${randomLeft}%`;
+            
+            section.appendChild(star);
+            
+            // Inicia a animação
+            star.classList.add('animate-star');
+            
+            // Remove o elemento após a animação para não pesar o site
+            setTimeout(() => {
+                star.remove();
+                scheduleNextStar(); // Agenda a próxima após esta terminar
+            }, 2000);
+        }
+
+        function scheduleNextStar() {
+            // Define um tempo aleatório entre 30 segundos (30000ms) e 90 segundos (90000ms)
+            const minTime = 30000;
+            const maxTime = 90000;
+            const randomDelay = Math.floor(Math.random() * (maxTime - minTime + 1)) + minTime;
+            
+            setTimeout(createShootingStar, randomDelay);
+        }
+
+        // Inicia o ciclo da primeira estrela
+        scheduleNextStar();
     </script>
 </body>
 </html>
