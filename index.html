@@ -677,7 +677,7 @@
             for (let i = 0; i < numBirds; i++) {
                 setTimeout(() => {
                     const birdContainer = document.createElement('div');
-                    // Adicionamos 'pointer-events-none' via JS para garantir que não interfira em cliques
+                    // 'pointer-events-none' via JS para garantir que não interfira em cliques
                     birdContainer.className = 'bird fly-animation pointer-events-none';
                     
                     const size = isDistant ? (10 + Math.random() * 10) : (30 + Math.random() * 20);
@@ -698,9 +698,7 @@
                     birdContainer.appendChild(birdBody);
                     section.appendChild(birdContainer);
 
-                    // REMOÇÃO SEGURA: 
-                    // Usamos o evento 'animationend' em vez de setTimeout puro, 
-                    // assim o navegador deleta o pássaro no milissegundo em que a animação acaba.
+                    // Remove o pássaro após a animação para não pesar o site
                     birdContainer.addEventListener('animationend', () => {
                         birdContainer.remove();
                     });
